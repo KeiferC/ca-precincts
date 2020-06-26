@@ -177,18 +177,40 @@ def run_tests3():
     print()
 
 def run_tests4():
-    et = ExtractTable('test1.csv', column="col2", value=['3', '5'])
+    #et = ExtractTable('test1.csv', column="col2", value=['3', '5'])
+    et = ExtractTable('test1.csv')
     print('infile = ', et.infile)
     print('outfile = ', et.outfile)
     print('column = ', et.column)
     print('value = ', et.value)
-    print(et.extract())
+    print(et.extract().head())
     print()
+    et.column = 'col1'
+    print(et.extract().head())
+    et.value = 'c'
+    print(et.extract().head())
+    et.column = 'col2'
+    et.value = ['b', 'd']
+    print()
+    et.extract_to_file()
+    print()
+    et2 = ExtractTable('test1.csv', '../dump/output.easdf', 'col1', None)
+    print(et2.extract().head())
+    et2.extract_to_file('ESRI Shapefile')
+    print()
+    et3 = ExtractTable('test1.csv', '../dump/output.shp', 'col1', None)
+    et3.extract_to_file()
+    print()
+    et4 = ExtractTable.read_file('test1.csv', 'col2')
+    print(et4.list_values('col1', unique=True))
+ 
+def run_tests5():
+    pass
 
 #########################################
 # Function Calls                        #
 #########################################
-run_tests()
-run_tests2()
-run_tests3()
+# run_tests()
+# run_tests2()
+# run_tests3()
 # run_tests4()
