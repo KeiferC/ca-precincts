@@ -68,7 +68,7 @@ precincts.
 │           └── state
 │               └── state.zip
 └── scripts
-    └── ExtractTable.py
+    └── extract.py
 ```
 
 
