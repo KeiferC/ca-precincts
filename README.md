@@ -32,32 +32,43 @@ precincts.
 ├── README.md
 ├── analyses
 ├── counties
-│   ├── alameda
-│   |   ├── processed
-│   |   │   ├── georeferenced
-│   |   │   ├── shp
-│   |   │   └── tab
-│   |   ├── raw
-│   |   │   ├── jpg
-│   |   │   └── shp
-│   |   └── results
+│   ├── alameda
+│   │   ├── README.md
+│   │   ├── processed
+│   │   │   ├── georeferenced
+│   │   │   ├── shp
+│   │   │   └── tab
+│   │   ├── raw
+│   │   │   ├── jpg
+│   │   │   └── shp
+│   │   └── results
 |   ├── alpine
-|   |   ├── processed
-|   |   |   ├── georeferenced
-|   ... ... ...
-└── geodata
-    ├── acs
-    │   ├── shp
-    │   └── tab
-    ├── census
-    │   ├── shp
-    │   │   └── 2010
-    │   └── tab
-    │       └── 2010
-    └── election
-        └── 2016
-            ├── federal
-            └── state
+│   │   ├── README.md
+│   │   ├── processed
+│   │   │   ├── georeferenced
+│   ... ... ...
+├── geodata
+│   ├── acs
+│   │   ├── shp
+│   │   └── tab
+│   ├── census
+│   │   ├── shp
+│   │   │   └── 2010
+│   │   │       ├── blocks.zip
+│   │   │       └── counties.zip
+│   │   └── tab
+│   │       └── 2010
+│   │           └── blocks.zip
+│   └── election
+│       └── 2016
+│           ├── federal
+│           │   ├── house.zip
+│           │   ├── president.zip
+│           │   └── senate.zip
+│           └── state
+│               └── state.zip
+└── scripts
+    └── ExtractTable.py
 ```
 
 
@@ -67,33 +78,31 @@ precincts.
 ### 2010 Decennial Census `/2010/` 
 __`blocks.zip`:__ Shapefile of 2010 California census blocks
 
-  - Retrieved June 2020 from the [National Historical Geographic Information System (NHGIS) database](https://data2.nhgis.org/)
-
-__`bgs.zip`:__ Shapefile of 2010 California census block groups
-
-  - Retrieved June 2020 from the [NHGIS database](https://data2.nhgis.org/)
+  - Retrieved June 2020 from the [National Historical Geographic Information
+    System (NHGIS) database's](https://data2.nhgis.org/) 2010 TIGER/Line+
+    basis
 
 __`counties.zip`:__ Shapefile of 2010 California counties
 
-  - Retrieved June 2020 from the [NHGIS database](https://data2.nhgis.org/)
+  - Retrieved June 2020 from the [NHGIS database's](https://data2.nhgis.org/) 
+    2010 TIGER Line+ basis
 
 __`state.zip`:__ Shapefile of 2010 California state. 
 
   - Retrieved June 2020 from the [NHGIS database](https://data2.nhgis.org/)
 
-### 2000 Decennial Census `/2000/`
-Coming soon...
 
 
 ## Demographics Data `geodata/census/tab/`
 ### 2010 Decennial Census `/2010/`
 __`blocks.zip`:__ Tabular demographics and VAP data of 2010 California census blocks
 
-  - Retrieved June 2020 from the [NHGIS database](https://data2.nhgis.org/)
+  - Retrieved June 2020 from the [NHGIS database's](https://data2.nhgis.org/)
+    2010_SF1a dataset
 
-__`bgs.zip`:__ Tabular CVAP data of 2010 California census block groups
+  - Contains tables "Total Population" and "Hispanic or Latino, and Not Hispanic
+    or Latino by Race for the Population 18 Years and Over"
 
-  - Retrieved June 2020 from the [NHGIS database](https://data2.nhgis.org/)
 
 
 ## Election Data `geodata/election/`
@@ -102,25 +111,25 @@ __`/federal/president.zip`:__ Tabular California precinct-level data for the 201
 
   - Retrieved June 20 from the [MIT Election Data and Science Lab (MEDSL) database](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/LYWX3D)
 
-  - California-specific data extracted with `‘state_postal = ND’` query
+  - California-specific data extracted with `‘state_postal = CA’` query
 
 __`/federal/senate.zip`:__ Tabular California precinct-level data for the 2016 Senate elections
 
   - Retrieved June 20 from the [MEDSL database](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/NLTQAD)
 
-  - California-specific data extracted with `‘state_postal = ND’` query
+  - California-specific data extracted with `‘state_postal = CA’` query
 
 __`/federal/house.zip`:__ Tabular California precinct-level data for the 2016 House elections
 
   - Retrieved June 20 from the [MEDSL database](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/PSKDUJ)
 
-  - California-specific data extracted with `‘state_postal = ND’` query
+  - California-specific data extracted with `‘state_postal = CA’` query
 
 __`/state/state.zip`:__ Tabular California precinct-level data for 2016 state elections
 
   - Retrieved June 20 from the [MEDSL database](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/GSZG1O)
 
-  - California-specific data extracted with `‘state_postal = ND’` query
+  - California-specific data extracted with `‘state_postal = CA’` query
 
 
 
@@ -236,5 +245,3 @@ Coming soon...
 
 - `2MOREVAP` (H75011): Voting age population of two or more races
 
-### Citizen Voting Age Population (CVAP) Data
-Coming soon...
