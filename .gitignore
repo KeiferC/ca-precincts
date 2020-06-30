@@ -24,4 +24,4 @@
 **/test*/
 **/test*.zip
 **/dump/
-geodata/*/shp
+geodata/**/shp/

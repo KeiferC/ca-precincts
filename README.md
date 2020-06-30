@@ -125,14 +125,12 @@ __`/federal/house.zip`:__ Tabular California precinct-level data for the 2016 Ho
 
   - California-specific data extracted with `‘state_postal = CA’` query
 
-__`/state/state.zip`:__ Tabular California precinct-level data for 2016 state elections
+__`/state/state.zip`:__ Tabular California precinct-level data for 2016 state 
+elections
 
   - Retrieved June 20 from the [MEDSL database](https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/GSZG1O)
 
   - California-specific data extracted with `‘state_postal = CA’` query
-
-
-
 
 
 
@@ -142,9 +140,19 @@ Number of precincts and precinct names were retrieved June 2020 from...
 
 ### Digitization of Precinct Maps
 Raster maps from the county's website were georeferenced in QGIS and then
-used to outline precinct boundaries around which census blocks were geographically merged. All maps were projected in `EPSG:...` (NAD83/UTM zone __)
+used to outline precinct boundaries around which census blocks were 
+geographically merged. All maps have coordinate reference systems (CRS) 
+defined on `EPSG:102003` (USA Contiguous Albers Equal Area Conic) for
+georeferencing along the OpenStreetMap (OSM) standard. Additionally, 
+the Albers projection is the standard used by the US Census Bureau, 
+from which the geographic data comes. The maps are projected in
+`EPSG:3310` (NAD83/California Albers) for prioritizing geographic area.
 
 ### Data Joining
+The block-level and county-level shapefiles were joined to disaggregate county
+names to blocks. The script can be found in the Jupyter Notebook `script/join-blocks-counties.ipynb`. The joined shapefile can be found in 
+`geodata/census/shp/2010/blocks-counties-joined.zip`.
+
 Shapefile and tabular data joins were done using python. The documented script can be found in the Jupyter Notebook `...`
 
 ### GeoData Aggregation
