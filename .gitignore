@@ -24,4 +24,4 @@
 **/test*/
 **/test*.zip
 **/dump/
-geodata/**/shp/
+geodata/census/shp/2010/blocks*
