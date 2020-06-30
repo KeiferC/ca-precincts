@@ -54,7 +54,7 @@ precincts.
 │   ├── census
 │   │   ├── shp
 │   │   │   └── 2010
-│   │   │       ├── blocks.zip
+│   │   │       ├── blocks.zip [not included because of large file size]
 │   │   │       └── counties.zip
 │   │   └── tab
 │   │       └── 2010
